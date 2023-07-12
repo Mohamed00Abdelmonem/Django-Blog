@@ -8,6 +8,13 @@ posts
    -tags
    -create_date
    -draft
+   -tag
+   -auther
+   -image
+  
+
+
+
 
 
 comment  
