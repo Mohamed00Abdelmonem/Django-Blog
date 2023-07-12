@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blog Post</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css">
+     -->
+    <style>
+        /* Style for the post container */
+
+
+        /* Style for the post container */
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for the post image */
+        .post img {
+            max-width: 300px;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the post title */
+        .post-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the post meta */
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the post author */
+        .post-author {
+            margin-right: 10px;
+        }
+
+        /* Style for the post date */
+        .post-date {
+            margin-right: 10px;
+        }
+
+        /* Style for the post tags */
+        .post-tags span {
+            margin-right: 5px;
+        }
+
+        /* Style for the post status */
+        .post-status {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Style for the post content */
+        .post-content {
+            text-align: justify;
+        }
+
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for the post image */
+        .post img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the post title */
+        .post-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the post meta */
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the post author */
+        .post-author {
+            margin-right: 10px;
+        }
+
+        /* Style for the post date */
+        .post-date {
+            margin-right: 10px;
+        }
+
+        /* Style for the post tags */
+        .post-tags span {
+            margin-right: 5px;
+        }
+
+        /* Style for the post status */
+        .post-status {
+            
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Style for the post content */
+        .post-content {
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="post">
+        <img src="{{context.image.url}}" alt="Post Image">
+        <h1 class="post-title">{{context.title}}</h1>
+        <div class="post-content">
+
+            <p>{{context.content}}.</p>
+        </div>
+
+        <div class="post-meta">
+            <p class="post-author">{{context.auther}}</p>
+            <p class="post-date">{{context.create_date}}</p>
+            <br>
+            <p class="post-status">{{context.draft}}</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

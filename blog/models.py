@@ -18,13 +18,13 @@ class Post(models.Model):
     create_date = models.DateTimeField(default='')
     draft = models.BooleanField(default=True)
     tags = TaggableManager()
-    image = models.ImageField('img/')
+    image = models.ImageField(upload_to='posts')
     auther = models.ForeignKey(User , on_delete=models.SET_NULL, null=True)
 
 
 
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.title
         
 
