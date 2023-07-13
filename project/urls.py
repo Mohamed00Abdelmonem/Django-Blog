@@ -22,8 +22,8 @@ from blog.views import post_list, post_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post/' , post_list),
-    path('post/<int:id_post>' , post_detail),
+    path('' , post_list),
+    path('<int:id_post>' , post_detail),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
+# from location_field.models.plain import PlainLocationField
 
 # Create your models here.
 
@@ -20,7 +21,8 @@ class Post(models.Model):
     tags = TaggableManager()
     image = models.ImageField(upload_to='posts')
     auther = models.ForeignKey(User , on_delete=models.SET_NULL, null=True)
-
+    # city = models.CharField(max_length=255)
+    # location = PlainLocationField(based_fields=['egypt'], zoom=7)
 
 
 

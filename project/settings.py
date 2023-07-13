@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'taggit',
+    # 'location_field',
+    # 'location_field.apps.DefaultConfig',
+
+
 ]
 
 MIDDLEWARE = [
