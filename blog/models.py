@@ -21,9 +21,7 @@ class Post(models.Model):
     tags = TaggableManager()
     image = models.ImageField(upload_to='posts')
     auther = models.ForeignKey(User , on_delete=models.SET_NULL, null=True)
-    # city = models.CharField(max_length=255)
-    # location = PlainLocationField(based_fields=['egypt'], zoom=7)
-
+    
 
 
     def __str__(self):

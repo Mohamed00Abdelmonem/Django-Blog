@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,21 +106,24 @@
         td button.view:hover {
             background-color: #FF5722;
         }
+
         button.new {
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;
-    margin-bottom: 20px;
-}
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
         a {
-    text-decoration: none;
+            text-decoration: none;
         }
     </style>
 </head>
+
 <body>
     <h1>Post List</h1>
     <button class="new"> <a href="\new">New Post</a></button>
@@ -140,13 +144,13 @@
                 <td>{{ post.create_date }}</td>
                 <td>
                     <button class="view"><a href="{{post.id}}">View</a></button>
-                    <button class="update"><a href="{{post.id}}">Update</a></button>
-                    <button class="delete"><a href="{{post.id}}">Delete</a></button>
+                    <button class="update"><a href="{{post.id}}/edit">Update</a></button>
+                    <button class="delete"><a href="{{post.id}}/delete">Delete</a></button>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </body>
+
 </html>
-   
