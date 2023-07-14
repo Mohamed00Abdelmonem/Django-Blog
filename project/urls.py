@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.views import post_list, post_detail
+from blog.views import post_list, post_detail,new_post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , post_list),
+    path('', post_list),
     path('<int:id_post>' , post_detail),
+    path('new', new_post ),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
