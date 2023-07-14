@@ -5,108 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <style>
-      /* Style for the post list */
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-h1 {
-    text-align: center;
-    font-size: 36px;
-    margin-top: 0;
+        /* Style for the table */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Style for the table header */
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Style for the table cells */
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        /* Style for the "Read More" button */
+        td button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Style for the "Read More" button on hover */
+        td button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* Style for the "Delete" button */
+        td button.delete {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Style for the "Delete" button on hover */
+        td button.delete:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Style for the "New" button */
+        td button.new {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Style for the "New" button on hover */
+        td button.new:hover {
+            background-color: #3e8e41;
+        }
+
+        /* Style for the "Update" button */
+        td button.update {
+            background-color: #2196F3;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Style for the "Update" button on hover */
+        td button.update:hover {
+            background-color: #1976D2;
+        }
+
+        /* Style for the "View" button */
+        td button.view {
+            background-color: #FF9800;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Style for the "View" button on hover */
+        td button.view:hover {
+            background-color: #FF5722;
+        }
+        button.new {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
-
-/* Style for each post */
-li {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Style for the post image */
-li img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-/* Style for the post title */
-li h2 {
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-/* Style for the post description */
-li p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-/* Style for the "Read More" button */
-li button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-/* Style for the "Read More" button */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-/* Style for the "Read More" button on hover */
-button:hover {
-    background-color: #3e8e41;
-}
-
-/* Style for the <a> element inside the <button> element */
-button a {
-    color: white;
+        a {
     text-decoration: none;
-}
-
-/* Style for the <a> element inside the <button> element on hover */
-button a:hover {
-    text-decoration: underline;
-}
-/* Style for the "Read More" button on hover */
-li button:hover {
-    background-color: #3e8e41;
-}
+        }
     </style>
 </head>
 <body>
-   
-
-
-
-
     <h1>Post List</h1>
-    {% for post in context %}
-    <ul>
-        <li>
-            <h2>{{post.title}}</h2>
-            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien. Sed euismod, velit vel bibendum bibendum, sapien sapien bibendum sapien, vel bibendum sapien sapien vel sapien.</p> -->
-            <button> <a href="{{post.id}}">Read More </a></button>
-        </li>
-        {% endfor %}
-    </ul>
-   
-    
+    <button class="new"> <a href="\new">New Post</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in context %}
+            <tr>
+                <td> <a href="{{post.id}}">{{ post.title }}</a></td>
+                <td>{{ post.auther }}</td>
+                <td>{{ post.create_date }}</td>
+                <td>
+                    <button class="view"><a href="{{post.id}}">View</a></button>
+                    <button class="update"><a href="{{post.id}}">Update</a></button>
+                    <button class="delete"><a href="{{post.id}}">Delete</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
+   

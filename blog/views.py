@@ -14,5 +14,10 @@ def post_detail(request, id_post):
 
 
 def new_post(request):
-    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = PostForm()    
     return render (request,'new_post.html', {'form': form} )

@@ -11,154 +11,134 @@
 
 
     <style>
-        /* Style for the post container */
+       :root {
+  --font-family-primary: 'Vollkorn', serif;
+  --font-family-secondary: 'PT Sans', sans-serif;
+  
+  --font-size-title: 32px;
+  --line-height-title: 1.4;
+  --font-size-caption: 14px;
+  --line-height-caption: 1.2;
+  
+  --color-text: #222022;
+  --color-highlight-primary: #FFEF7E;
+  --color-highlight-secondary: #B7F9E9;
+  --border-radius-primary: 32px; 
+}
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
 
-        /* Style for the post container */
-        .post {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-        /* Style for the post image */
-        .post img {
-            max-width: 300px;
-            max-height: 400px;
-            width: auto;
-            height: auto;
-            margin-bottom: 10px;
-        }
+@mixin mediaBig {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
 
-        /* Style for the post title */
-        .post-title {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+@include mediaBig {
+  :root {
+    --font-size-title: 40px;
+  }  
+}
 
-        /* Style for the post meta */
-        .post-meta {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+.card {
+  max-width: 960px;
+  border-radius: var(--border-radius-primary);
+  box-shadow: 24px 24px 80px rgba(0,0,0,0.1);
+  padding: 20px 20px 28px 20px;
+  box-sizing: border-box;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  
+  @include mediaBig {
+    flex-direction: row;
+    align-items: center;
+    margin: 40px;
+    padding: 32px;
+  }
+}
 
-        /* Style for the post author */
-        .post-author {
-            margin-right: 10px;
-        }
+.card__image {
+  width: 100%;
+  max-height: 300px;
+  border-radius: var(--border-radius-primary);
+  object-fit: cover;
+  margin-bottom: 18px;
+  
+  @include mediaBig {
+    width: 45%;
+    max-height: none;
+    min-height: 400px;
+    margin-bottom: 0;
+  }
+}
 
-        /* Style for the post date */
-        .post-date {
-            margin-right: 10px;
-        }
+.card__content {
+  @include mediaBig {
+    width: 55%;
+    padding-left: 40px;
+  }
+}
 
-        /* Style for the post tags */
-        .post-tags span {
-            margin-right: 5px;
-        }
+.card__date {
+  display: block;
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  
+  @include mediaBig {
+    margin-bottom: 8px;
+  }
+}
 
-        /* Style for the post status */
-        .post-status {
-            background-color: #f44336;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
+.card__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-title);
+  line-height: var(--line-height-title);
+  color: var(--color-text);
+  box-decoration-break: clone;
+  background-image: linear-gradient(90deg, var(--color-highlight-primary), var(--color-highlight-secondary));
+  background-size: 100% 42%;
+  background-repeat: no-repeat;
+  background-position: 0 85%;
+  padding: 0 4px;
+  margin-left: -4px;
+}
 
-        /* Style for the post content */
-        .post-content {
-            text-align: justify;
-        }
-
-        .post {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Style for the post image */
-        .post img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        /* Style for the post title */
-        .post-title {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        /* Style for the post meta */
-        .post-meta {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        /* Style for the post author */
-        .post-author {
-            margin-right: 10px;
-        }
-
-        /* Style for the post date */
-        .post-date {
-            margin-right: 10px;
-        }
-
-        /* Style for the post tags */
-        .post-tags span {
-            margin-right: 5px;
-        }
-
-        /* Style for the post status */
-        .post-status {
-            
-            background-color: #f44336;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
-
-        /* Style for the post content */
-        .post-content {
-            text-align: justify;
-        }
     </style>
 </head>
 
 <body>
-    <div class="post">
-        <img src="{{context.image.url}}" alt="Post Image">
-        <h1 class="post-title">{{context.title}}</h1>
-        <div class="post-content">
 
-            <p>{{context.content}}.</p>
+    <div class="card">
+        <img src="{{context.image.url}}" class="card__image" alt="brown couch" />
+        <div class="card__content">
+          <time datetime="2021-03-30" class="card__date">{{context.create_date}}</time>
+          <p class="post-author">{{context.auther}}</p>
+          <p class="post-status">draft : {{context.draft}}</p>
+          <span class="card__title">{{context.title}}<span>
         </div>
+      </div>
 
-        <div class="post-meta">
-            <p class="post-author">{{context.auther}}</p>
-            <p class="post-date">{{context.create_date}}</p>
-            <br>
-            <p class="post-status">{{context.draft}}</p>
-            <br>
-<!-- {{form}} -->
-        </div>
 
-    </div>
+
+
 </body>
 
 </html>

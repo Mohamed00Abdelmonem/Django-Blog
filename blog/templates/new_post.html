@@ -5,7 +5,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #768de2;
+            background-color: #4CAF50;
         }
         h1 {
             color: #333;
@@ -14,7 +14,7 @@
         form {
             max-width: 500px;
             margin: 0 auto;
-            background-color: #a1a2ce;
+            background-color: #49a182;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -47,7 +47,8 @@
 </head>
 <body>
     <h1>My Django Page</h1>
-    <form>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
        {{form}}
 
         <input type="submit" value="Submit">
