@@ -127,17 +127,14 @@ body {
 <body>
 
     <div class="card">
-        <img src="{{context.image.url}}" class="card__image" alt="brown couch" />
+        <img src="{{object.image.url}}" class="card__image" alt="brown couch" />
         <div class="card__content">
-          <time datetime="2021-03-30" class="card__date">{{context.create_date}}</time>
-          <p class="post-author">{{context.auther}}</p>
-          <p class="post-status">draft : {{context.draft}}</p>
-          <span class="card__title">{{context.content}}<span>
+          <time datetime="2021-03-30" class="card__date">{{object.create_date}}</time>
+          <p class="post-author">{{object.auther}}</p>
+          <p class="post-status">draft : {{object.draft}}</p>
+          <span class="card__title">{{object.content}}<span>
         </div>
       </div>
-
-
-
 
 </body>
 

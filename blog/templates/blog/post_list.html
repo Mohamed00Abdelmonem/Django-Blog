@@ -137,7 +137,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for post in context %}
+            {% for post in object_list %}
             <tr>
                 <td> <a href="{{post.id}}">{{ post.title }}</a></td>
                 <td>{{ post.auther }}</td>
@@ -145,12 +145,22 @@
                 <td>
                     <button class="view"><a href="{{post.id}}">View</a></button>
                     <button class="update"><a href="{{post.id}}/edit">Update</a></button>
-                    <button class="delete"><a href="{{post.id}}/delete">Delete</a></button>
+                    <button class="delete"><a href="{{post.id}}/delete" onclick="return confirm('Are you sure you want to delete this post?')"> Delete </a></button>
+                
+                    <!-- <button class="delete"><a href="{{post.id}}/delete">Delete</a></button> -->
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+        <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
 </body>
 
 </html>
