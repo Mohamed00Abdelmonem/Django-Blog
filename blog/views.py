@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 # Create your views here.
@@ -13,7 +13,7 @@ class PostList(ListView): # template : post_list  name database & _ & List or de
 
 class PostDetail(DetailView):
     model = Post
-
+    
 
 class PostCreate(CreateView):
     model = Post

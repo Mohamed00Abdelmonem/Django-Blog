@@ -1,141 +1,90 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Blog Post</title>
-    <!-- <link rel="stylesheet" type="text/css" href="style.css">
-     -->
-<!-- 
-     <script src="[ link to jquery.js goes here ]"></script>
-     {{form.media}} -->
-
-
+    <title>{{ post.title }}</title>
     <style>
-       :root {
-  --font-family-primary: 'Vollkorn', serif;
-  --font-family-secondary: 'PT Sans', sans-serif;
-  
-  --font-size-title: 32px;
-  --line-height-title: 1.4;
-  --font-size-caption: 14px;
-  --line-height-caption: 1.2;
-  
-  --color-text: #222022;
-  --color-highlight-primary: #FFEF7E;
-  --color-highlight-secondary: #B7F9E9;
-  --border-radius-primary: 32px; 
-}
+        /* style.css */
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
 }
 
-@mixin mediaBig {
-  @media (min-width: 576px) {
-    @content;
-  }
+header h1 {
+    margin: 0;
 }
 
-@include mediaBig {
-  :root {
-    --font-size-title: 40px;
-  }  
+main {
+    padding: 2rem;
 }
 
-.card {
-  max-width: 960px;
-  border-radius: var(--border-radius-primary);
-  box-shadow: 24px 24px 80px rgba(0,0,0,0.1);
-  padding: 20px 20px 28px 20px;
-  box-sizing: border-box;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  
-  @include mediaBig {
-    flex-direction: row;
-    align-items: center;
-    margin: 40px;
-    padding: 32px;
-  }
+article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-.card__image {
-  width: 100%;
-  max-height: 300px;
-  border-radius: var(--border-radius-primary);
-  object-fit: cover;
-  margin-bottom: 18px;
-  
-  @include mediaBig {
-    width: 45%;
-    max-height: none;
-    min-height: 400px;
-    margin-bottom: 0;
-  }
+h2 {
+    margin-bottom: 1rem;
 }
 
-.card__content {
-  @include mediaBig {
-    width: 55%;
-    padding-left: 40px;
-  }
+p {
+    margin-bottom: 1.5rem;
 }
 
-.card__date {
-  display: block;
-  font-family: var(--font-family-secondary);
-  font-size: var(--font-size-caption);
-  line-height: var(--line-height-caption);
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin-bottom: 6px;
-  
-  @include mediaBig {
-    margin-bottom: 8px;
-  }
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
 }
 
-.card__title {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-title);
-  line-height: var(--line-height-title);
-  color: var(--color-text);
-  box-decoration-break: clone;
-  background-image: linear-gradient(90deg, var(--color-highlight-primary), var(--color-highlight-secondary));
-  background-size: 100% 42%;
-  background-repeat: no-repeat;
-  background-position: 0 85%;
-  padding: 0 4px;
-  margin-left: -4px;
+a {
+    text-decoration: none;
+    color: #007bff;
 }
+
+/* Add any additional styles here to further customize the post detail page */
 
     </style>
 </head>
-
 <body>
+    <header>
+        <h1>Post ( {{post.title}} )</h1>
+    </header>
 
-    <div class="card">
-        <img src="{{object.image.url}}" class="card__image" alt="brown couch" />
-        <div class="card__content">
-          <time datetime="2021-03-30" class="card__date">{{object.create_date}}</time>
-          <p class="post-author">{{object.auther}}</p>
-          <p class="post-status">draft : {{object.draft}}</p>
-          <span class="card__title">{{object.content}}<span>
-        </div>
-      </div>
+    <main>
+        <article>
+            <img src="{{post.image.url}}" width="30%" height="50%" alt="">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p>{{ post.draft }}</p>
+            <p>{{ post.author}}</p>
+        </article>
+    </main>
+<hr> 
+<article>
+  <h2>Comments</h2>
+   <p>{{ post.title}}</p>
+</article>
 
+    <footer>
+        <p>&copy; 2023 My Blog. All rights reserved.</p>
+    </footer>
 </body>
-
 </html>
+
+
