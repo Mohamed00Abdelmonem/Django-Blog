@@ -77,8 +77,25 @@ a {
     </main>
 <hr> 
 <article>
+
   <h2>Comments</h2>
-   <p>{{ post.title}}</p>
+{% for comment in show_comment %}
+       <p>{{comment.comment}}</p>
+{% endfor%}
+    </article>
+
+
+
+    <article>
+
+  <h2>Create Comment</h2>
+<form method="post">
+    {% csrf_token %}
+    <p>{{comment}}</p>
+    <input type="submit" value="create">
+</form>
+    
+
 </article>
 
     <footer>
